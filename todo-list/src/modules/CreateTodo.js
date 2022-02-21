@@ -1,3 +1,6 @@
+import React from "react";
+import {v4 as uuid} from 'uuid';
+
 function createTodo(name) {
         /*
     Each todo should be an object
@@ -11,7 +14,8 @@ function createTodo(name) {
         todoName: name,
         todoDescription: "",
         tasks: {},
-        isComplete: false
+        isComplete: false,
+        id: uuid()
     }
 
 
