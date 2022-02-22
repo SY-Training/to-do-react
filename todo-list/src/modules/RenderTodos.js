@@ -1,4 +1,4 @@
-const RenderTodos = ( {todos } ) => {
+const RenderTodos = ( { todos, deleteTodo } ) => {
 
  //requires component Home.js to render properly. cannot render from app.js
 
@@ -12,6 +12,7 @@ const RenderTodos = ( {todos } ) => {
                         <p>{obj.todoDescription}</p>
                         <p>{obj.tasks}</p>
                         <p>{obj.isComplete}</p>
+                        <button onClick={() => deleteTodo(obj.id)}>Delete To Do</button>
                     </div>
                 ))
             }
