@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import RenderTodos from "./modules/RenderTodos";
 import createTodo from "./modules/CreateTodo"
 
@@ -32,6 +32,10 @@ const Home = () => {
       const newTodos = myTodos.filter(todo => todo.id !== id);
       setTodos(newTodos);
     }
+
+    useEffect(() => {
+      
+    }, [myTodos])
   
     return (
       <div className="home">

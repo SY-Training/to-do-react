@@ -1,7 +1,7 @@
 const RenderTodos = ( { todos, deleteTodo } ) => {
 
  //requires component Home.js to render properly. cannot render from app.js
-
+    console.log("rendering");
 
     return (
         <div className="renderTodos">
