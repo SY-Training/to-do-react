@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+const RenderTodos = ( {todos } ) => {
 
-const RenderTodos = ( { todos } ) => {
-    // loop through each array element and render a div for them.
+ //requires component Home.js to render properly. cannot render from app.js
 
-// Works when objects are here, but not when objects are in app.js
-// Perhaps needs a promise?
 
     return (
         <div className="renderTodos">
@@ -18,7 +15,7 @@ const RenderTodos = ( { todos } ) => {
                 ))
             }
         </div>
-    )
-}
+    );
+  }
 
 export default RenderTodos;
