@@ -10,6 +10,7 @@ const RenderTodos = ( {todos } ) => {
                     <div className="todo-preview" key={obj.id}>
                         <p>{obj.todoName}</p>
                         <p>{obj.todoDescription}</p>
+                        <p>{obj.tasks}</p>
                         <p>{obj.isComplete}</p>
                     </div>
                 ))

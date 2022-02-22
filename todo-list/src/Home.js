@@ -2,10 +2,12 @@ import { useState, useRef } from "react";
 import RenderTodos from "./modules/RenderTodos";
 import createTodo from "./modules/CreateTodo"
 
+// Array required for rasks, or will have to add id for each task
 const Home = () => {
     const [myTodos, setTodos] = useState([
         { todoName: 'test',
         todoDescription: "testy",
+        tasks: ["first task", "second task"],
         isComplete: false,
         id: 1},
       ])
