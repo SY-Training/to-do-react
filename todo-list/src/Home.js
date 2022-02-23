@@ -24,7 +24,7 @@ const Home = () => {
           let newTodo = createTodo(inputRef.current.value);
           myTodos.push(newTodo);
           console.log(myTodos);
-          let newArr = myTodos
+          let newArr = myTodos;
           setTodos([...newArr]);
           inputRef.current.value = null;
         }
@@ -38,6 +38,16 @@ const Home = () => {
     }
 
     const addTask = (id) => {
+      let task = window.prompt();
+      console.log(task);
+      myTodos.forEach(obj => {
+        if(obj.id === id) {
+          obj.tasks.push(task);
+        }
+      })
+      let newArr = myTodos;
+      setTodos([...newArr]);
+      console.log(myTodos); // Works but does not re-render todos.
 
     }
   
