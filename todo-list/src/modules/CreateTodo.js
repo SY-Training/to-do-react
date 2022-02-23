@@ -13,7 +13,7 @@ function createTodo(name) {
     return {
         todoName: name,
         todoDescription: "",
-        tasks: {},
+        tasks: [],
         isComplete: false,
         id: uuid()
     }

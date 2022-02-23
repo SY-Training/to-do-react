@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import RenderTodos from "./modules/RenderTodos";
 import createTodo from "./modules/CreateTodo"
 
@@ -17,11 +17,15 @@ const Home = () => {
         if(inputRef.current.value === ""){
           console.log("Empty input");
         }
-    
+          // React setState doesn't re-render when changing values in its useState array.
+          // Instead a new array needs to be declared for it to recognise a change.
+          // Noted as newArr here.
         else {
           let newTodo = createTodo(inputRef.current.value);
           myTodos.push(newTodo);
           console.log(myTodos);
+          let newArr = myTodos
+          setTodos([...newArr]);
           inputRef.current.value = null;
         }
       }
@@ -32,16 +36,12 @@ const Home = () => {
       const newTodos = myTodos.filter(todo => todo.id !== id);
       setTodos(newTodos);
     }
-
-    useEffect(() => {
-      
-    }, [myTodos])
   
     return (
       <div className="home">
         <input name='todoName' type="text" placeholder="Create task" ref={inputRef} />
         <button onClick={() => postTodo()}>Create Task</button>
-        <RenderTodos todos={myTodos} deleteTodo={deleteTodo} />
+        {myTodos && <RenderTodos todos={myTodos} deleteTodo={deleteTodo} />}
       </div>
     );
   }
