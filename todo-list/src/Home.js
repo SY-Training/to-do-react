@@ -5,9 +5,9 @@ import createTodo from "./modules/CreateTodo"
 // Array required for rasks, or will have to add id for each task
 const Home = () => {
     const [myTodos, setTodos] = useState([
-        { todoName: 'test1', todoDescription: "testy1", tasks: ["first task", "second task"], isComplete: false, id: 1},
-        { todoName: 'test2', todoDescription: "testy2", tasks: ["first task", "second task"], isComplete: false, id: 2},
-        { todoName: 'test3', todoDescription: "testy3", tasks: ["first task", "second task"], isComplete: false, id: 3}
+        { todoName: 'test1', tasks: ["first task", "second task"], isComplete: false, id: 1},
+        { todoName: 'test2', tasks: ["first task", "second task"], isComplete: false, id: 2},
+        { todoName: 'test3', tasks: ["first task", "second task"], isComplete: false, id: 3}
       ])
 
       const inputRef = useRef("");
@@ -36,12 +36,16 @@ const Home = () => {
       const newTodos = myTodos.filter(todo => todo.id !== id);
       setTodos(newTodos);
     }
+
+    const addTask = (id) => {
+
+    }
   
     return (
       <div className="home">
         <input name='todoName' type="text" placeholder="Create task" ref={inputRef} />
         <button onClick={() => postTodo()}>Create Task</button>
-        {myTodos && <RenderTodos todos={myTodos} deleteTodo={deleteTodo} />}
+        {myTodos && <RenderTodos todos={myTodos} deleteTodo={deleteTodo} addTask={addTask} />}
       </div>
     );
   }

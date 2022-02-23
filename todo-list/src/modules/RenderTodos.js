@@ -1,7 +1,6 @@
-const RenderTodos = ( { todos, deleteTodo } ) => {
+const RenderTodos = ( { todos, deleteTodo, addTask } ) => {
 
  //requires component Home.js to render properly. cannot render from app.js
-    console.log("rendering");
 
     return (
         <div className="renderTodos">
@@ -9,10 +8,12 @@ const RenderTodos = ( { todos, deleteTodo } ) => {
                 todos.map(obj => (
                     <div className="todo-preview" key={obj.id}>
                         <p>{obj.todoName}</p>
-                        <p>{obj.todoDescription}</p>
-                        <p>{obj.tasks}</p>
+                        <div className="tasks">
+                            <p>{obj.tasks}</p>
+                        </div>
                         <p>{obj.isComplete}</p>
-                        <button onClick={() => deleteTodo(obj.id)}>Delete To Do</button>
+                        <button className="deleteTodo" onClick={() => deleteTodo(obj.id)}>Delete To Do</button>
+                        <button className="addTask" onClick={() => addTask(obj.id)}>Add Task</button>
                     </div>
                 ))
             }
