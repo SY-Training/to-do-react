@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import RenderTodos from "./modules/RenderTodos";
 import createTodo from "./modules/CreateTodo"
+import {v4 as uuID} from 'uuid';
 
 // Array required for rasks, or will have to add id for each task
 const Home = () => {
@@ -36,25 +37,26 @@ const Home = () => {
       setTodos(newTodos);      
     }
 
+    // Creates task and add to toDo. Also requires unique ID. 
     const addTask = (id) => {
       let task = window.prompt();
       console.log(task);
       myTodos.forEach(obj => {
         if(obj.id === id) {
-          obj.tasks.push(task);
+          obj.tasks.push({task : task, taskId : uuID()});
         }
       })
       let newArr = myTodos;
       setTodos([...newArr]);
-      console.log(myTodos); // Works but does not re-render todos.
+      console.log(myTodos); 
 
     }
     
     // RenderTodos wrapped in curly braces to be able to use the null check (myTodos &&)
     return (
       <div className="home">
-        <input name='todoName' type="text" placeholder="Create task" ref={inputRef} />
-        <button onClick={() => postTodo()}>Create Task</button>
+        <input name='todoName' type="text" placeholder="Create todo" ref={inputRef} />
+        <button onClick={() => postTodo()}>Create todo</button>
         {myTodos && <RenderTodos todos={myTodos} deleteTodo={deleteTodo} addTask={addTask} />}
       </div>
     );
