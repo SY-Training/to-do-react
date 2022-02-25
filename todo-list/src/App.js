@@ -1,10 +1,10 @@
 import Home from './Home';
 
-// Additional notes in CreateTodos
+// Additional notes in CreateTodos.js
 
 // Add edit buttons to todos.
 
-// Add create task buttons.
+// Add edit task buttons.
 
 // Can strikeout and delete tasks. 
 

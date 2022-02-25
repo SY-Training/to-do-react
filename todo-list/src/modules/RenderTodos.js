@@ -9,7 +9,15 @@ const RenderTodos = ( { todos, deleteTodo, addTask } ) => {
                     <div className="todo-preview" key={obj.id}>
                         <p>{obj.todoName}</p>
                         <div className="tasks">
-                            <p>{obj.tasks}</p>
+                            {
+                                obj.tasks.map(task => (
+                                    
+                                    <div className="task" key={task.taskId}>
+                                        <p>{task.task}</p>
+                                        <button className="edit-task">Edit</button>
+                                    </div>
+                                ))
+                            }
                         </div>
                         <p>{obj.isComplete}</p>
                         <button className="deleteTodo" onClick={() => deleteTodo(obj.id)}>Delete To Do</button>
