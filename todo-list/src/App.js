@@ -2,11 +2,8 @@ import Home from './Home';
 
 // Additional notes in CreateTodos.js
 
-// Add edit buttons to todos.
-
-// Add edit task buttons.
-
 // Can strikeout and delete tasks. 
+    // add checkbox which strikes out task. Can toggle strikeout.
 
 function App() {
     return (

@@ -48,16 +48,28 @@ const Home = () => {
       })
       let newArr = myTodos;
       setTodos([...newArr]);
-      console.log(myTodos); 
-
     }
+
+    // Edit the task inside a todo
+    const editTask = (id) => {
+      let edit = window.prompt();
+      myTodos.forEach(obj => {
+        obj.tasks.forEach(subOjb => {
+          if(subOjb.taskId === id){
+            subOjb.task = edit;
+          }
+        })
+      })
+      let newArr = myTodos;
+      setTodos([...newArr]);
+    } 
     
     // RenderTodos wrapped in curly braces to be able to use the null check (myTodos &&)
     return (
       <div className="home">
         <input name='todoName' type="text" placeholder="Create todo" ref={inputRef} />
         <button onClick={() => postTodo()}>Create todo</button>
-        {myTodos && <RenderTodos todos={myTodos} deleteTodo={deleteTodo} addTask={addTask} />}
+        {myTodos && <RenderTodos todos={myTodos} deleteTodo={deleteTodo} addTask={addTask} editTask={editTask}/>}
       </div>
     );
   }
