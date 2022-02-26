@@ -67,9 +67,13 @@ const Home = () => {
     // RenderTodos wrapped in curly braces to be able to use the null check (myTodos &&)
     return (
       <div className="home">
-        <input name='todoName' type="text" placeholder="Create todo" ref={inputRef} />
-        <button onClick={() => postTodo()}>Create todo</button>
-        {myTodos && <RenderTodos todos={myTodos} deleteTodo={deleteTodo} addTask={addTask} editTask={editTask}/>}
+        <div className="header">
+          <input name='todoName' className="todoName" type="text" placeholder="Create todo" ref={inputRef} />
+          <button onClick={() => postTodo()}>Create todo</button>
+        </div>
+        <div className="middle">
+          {myTodos && <RenderTodos todos={myTodos} deleteTodo={deleteTodo} addTask={addTask} editTask={editTask}/>}
+        </div>
       </div>
     );
   }
