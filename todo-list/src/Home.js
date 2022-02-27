@@ -64,12 +64,25 @@ const Home = () => {
       setTodos([...newArr]);
     } 
 
+    // Delete a task under a todo.
     const deleteTask = (id) => {
-      let newArr = myTodos.forEach(obj => {
-        obj.tasks.filter(subOjb => subOjb.taskId !== id)
+
+      myTodos.forEach(obj =>{
+        obj.tasks.forEach(task => {
+          if(task.taskId === id) {
+            console.log("hit");
+            delete obj.tasks[task];
+          }
+        })
       })
 
-      setTodos([...newArr]);
+      /*
+      myTodos.forEach(obj => {
+        obj.tasks.filter(subOjb => subOjb.taskId !== id)
+      })*/
+
+      //setTodos([...newArr]);
+      //console.log("newArr is: " + newArr);
       console.log(myTodos);
     }
     
