@@ -1,4 +1,4 @@
-const RenderTodos = ( { todos, deleteTodo, addTask, editTask } ) => {
+const RenderTodos = ( { todos, deleteTodo, addTask, editTask, deleteTask } ) => {
 
  //requires component Home.js to render properly. cannot render from app.js
 
@@ -15,6 +15,7 @@ const RenderTodos = ( { todos, deleteTodo, addTask, editTask } ) => {
                                     <div className="task" key={task.taskId}>
                                         <p>{task.task}</p>
                                         <button className="edit-task" onClick={() => editTask(task.taskId)}>Edit</button>
+                                        <button className="delete-task" onClick={() => deleteTask(task.taskId)}>Delete</button>
                                     </div>
                                 ))
                             }

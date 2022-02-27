@@ -63,6 +63,15 @@ const Home = () => {
       let newArr = myTodos;
       setTodos([...newArr]);
     } 
+
+    const deleteTask = (id) => {
+      let newArr = myTodos.forEach(obj => {
+        obj.tasks.filter(subOjb => subOjb.taskId !== id)
+      })
+
+      setTodos([...newArr]);
+      console.log(myTodos);
+    }
     
     // RenderTodos wrapped in curly braces to be able to use the null check (myTodos &&)
     return (
@@ -72,7 +81,13 @@ const Home = () => {
           <button onClick={() => postTodo()}>Create todo</button>
         </div>
         <div className="middle">
-          {myTodos && <RenderTodos todos={myTodos} deleteTodo={deleteTodo} addTask={addTask} editTask={editTask}/>}
+          {myTodos && <RenderTodos 
+                      todos={myTodos} 
+                      deleteTodo={deleteTodo} 
+                      addTask={addTask} 
+                      editTask={editTask}
+                      deleteTask={deleteTask}
+                      />}
         </div>
       </div>
     );
