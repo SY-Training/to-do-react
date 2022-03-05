@@ -67,24 +67,20 @@ const Home = () => {
     // Delete a task under a todo.
     const deleteTask = (id) => {
 
-      myTodos.forEach(obj =>{
-        obj.tasks.forEach(task => {
-          if(task.taskId === id) {
-            console.log("hit");
-            delete obj.tasks[task];
+      for(let i = 0; i < myTodos.length; i++){
+        for(let j = 0; j < myTodos[i].tasks.length; j++){
+          console.log(j);
+          if(myTodos[i].tasks[j].taskId === id){
+            console.log("hiyooooooo " + id);  // WORKS - Try to delete array element from here. Filter or splice
+            myTodos[i].tasks.splice(j);
           }
-        })
-      })
+        }
+      }
+      console.log(myTodos);  // iffy. Removing first elements in tasks removes all of them. 
+    
 
-      /*
-      myTodos.forEach(obj => {
-        obj.tasks.filter(subOjb => subOjb.taskId !== id)
-      })*/
+  }
 
-      //setTodos([...newArr]);
-      //console.log("newArr is: " + newArr);
-      console.log(myTodos);
-    }
     
     // RenderTodos wrapped in curly braces to be able to use the null check (myTodos &&)
     return (
