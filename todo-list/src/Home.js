@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import RenderTodos from "./modules/RenderTodos";
 import createTodo from "./modules/CreateTodo"
 import {v4 as uuID} from 'uuid';
@@ -11,6 +11,18 @@ const Home = () => {
       ])
 
       const inputRef = useRef("");
+
+      // useEffect hooks for local storage
+      useEffect(() => {
+        const data = localStorage.getItem("todos");
+        if(data){
+          setTodos(JSON.parse(data));
+        }
+      }, [])
+
+      useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(myTodos));
+      })
 
       // Send to CreateTodo to return todo object and push to array.
       function postTodo(){
