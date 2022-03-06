@@ -64,21 +64,21 @@ const Home = () => {
       setTodos([...newArr]);
     } 
 
-    // Delete a task under a todo.
+    // Delete a task under a todo. Uses nested for loop and splice. 
     const deleteTask = (id) => {
 
       for(let i = 0; i < myTodos.length; i++){
         for(let j = 0; j < myTodos[i].tasks.length; j++){
           console.log(j);
           if(myTodos[i].tasks[j].taskId === id){
-            console.log("hiyooooooo " + id);  // WORKS - Try to delete array element from here. Filter or splice
-            myTodos[i].tasks.splice(j);
+            console.log("hiyooooooo " + id);  
+            myTodos[i].tasks.splice(j, 1);
           }
         }
       }
-      console.log(myTodos);  // iffy. Removing first elements in tasks removes all of them. 
-    
-
+      console.log(myTodos);  
+      let newArr = myTodos;
+      setTodos([...newArr]);
   }
 
     
