@@ -30,6 +30,17 @@ const Home = () => {
         }
       }
 
+    const editTodoName = (id) => {
+      let edit = window.prompt();
+      myTodos.forEach(obj => {
+        if(obj.id === id) {
+          obj.todoName = edit;
+        }
+      })
+      let newArr = myTodos;
+      setTodos([...newArr]);
+    }
+
     // Using array filter, which returns a new array under newTodos where the todos don't have the same ID as
     //  the one specified, then using that to delete the todo.
     const deleteTodo = (id) => {
@@ -96,6 +107,7 @@ const Home = () => {
                       addTask={addTask} 
                       editTask={editTask}
                       deleteTask={deleteTask}
+                      editTodoName={editTodoName}
                       />}
         </div>
       </div>
